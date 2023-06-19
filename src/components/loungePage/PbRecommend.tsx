@@ -12,7 +12,7 @@ function PbRecommend({ name }: any) {
           PB 매칭 결과가 도착했어요!
         </div>
         <Link
-          href="/analysis/complete"
+          href="/pblist/recommend"
           className="ml-44 mt-10 flex h-11 w-[168px] items-center justify-center rounded-sm bg-white text-xs text-primary-normal"
         >
           PB 매칭 결과 확인하기
