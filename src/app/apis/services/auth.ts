@@ -30,3 +30,21 @@ export const findEmail = async (user: IUser) => {
   console.log(res.data);
   return res.data;
 };
+
+export const pbProfile = async (id:number) => {
+  try {
+    const res = await instance.get(`/auth/profile/${id}`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const pbPortfolio = async (id: number) => {
+  try {
+    const res = await instance.get(`/auth/portfolio/${id}`);
+    return res.data;
+  } catch (error) {
+    console.log(error);
+  }
+};
