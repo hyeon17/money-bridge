@@ -28,7 +28,7 @@ export interface User {
   name: string;
 }
 
-export interface ListResponse<T> {
+export interface IListResponse<T> {
   status: string;
   msg: string;
   data: {
@@ -42,7 +42,7 @@ export interface ListResponse<T> {
   };
 }
 
-export interface DataResponse<T> {
+export interface IDataResponse<T> {
   status: string;
   msg: string;
   data: T[] | null;
