@@ -3,7 +3,7 @@ import React, { useEffect, useState } from "react";
 import Intro from "@/components/loungePage/Intro";
 import PbRecommend from "@/components/loungePage/PbRecommend";
 import Content from "@/components/loungePage/Content";
-import { useRoleStore } from "@/store/roleStore";
+import { useUserStore } from "@/store/userStore";
 import TopNav from "@/components/common/TopNav";
 import { LoungeBoard, LoungeNew } from "@/app/apis/services/common";
 import { useQuery } from "@tanstack/react-query";
@@ -11,7 +11,7 @@ import { IListResponse } from "@/types/common";
 import { IContentCard } from "@/types/card";
 
 function Lounge() {
-  const userData = useRoleStore();
+  const userData = useUserStore();
   const [role, setRole] = useState<string>("");
   const [name, setName] = useState<string>("");
   const [All, setAll] = useState<IListResponse<IContentCard> | undefined>();

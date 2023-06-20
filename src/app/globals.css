@@ -90,6 +90,7 @@
   .button_outlined {
     @apply flex h-[56px] w-full min-w-[358px] items-center justify-center rounded-md border-1 border-primary-normal font-bold text-primary-normal;
   }
+
   .button_small {
     @apply h-[56px] w-[110px] rounded-sm border-1 border-primary-normal bg-white font-bold;
   }
@@ -131,17 +132,19 @@
   }
 
   .popup .popup-button {
-    @apply h-[44px] rounded-md bg-primary-normal  text-white;
+    @apply h-[44px] rounded-md bg-primary-normal text-white;
   }
 
   .popup .cancel-button {
-    @apply w-1/2  rounded-md border-1 border-black py-3;
+    @apply w-1/2 rounded-md border-1 border-black py-3;
   }
+
   .pb_top_Phrase {
-    @apply mb-6 mt-4 h-8 w-full bg-primary-normal p-2 text-center text-xs;
+    @apply mb-6 mt-4 w-full bg-primary-normal px-4 py-2 text-center text-xs;
   }
+
   .user_top_Phrase {
-    @apply mb-6 mt-4 h-8 w-full bg-secondary-heavy p-2 text-center text-xs;
+    @apply mb-6 mt-4 w-full bg-secondary-heavy px-4 py-2 text-center text-xs;
   }
 
   .propensity_circle {

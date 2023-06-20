@@ -6,18 +6,26 @@ import "@/styles/pb.css";
 function Content({ contentData }: any) {
   const { name, intro, speciality1, speciality2, career, award } = contentData;
   const portfolioData = portfolio.data;
-  // const { highestReturn, propensity, startDate, dangerRate, file } = portfolioData;
+  const { cumulativeReturn, maxDrawdown, profitFactor, averageProfit, file } = portfolioData;
   const [introValue, setIntroValue] = useState(intro);
   const [speciality1Value, setSpeciality1Value] = useState(speciality1);
   const [speciality2Value, setSpeciality2Value] = useState(speciality2);
   const [careerValue, setCareerValue] = useState(career);
   const [awardValue, setAwardValue] = useState(award);
+  const [fileValue, setFileValue] = useState(file);
   // const [highestReturnValue, setHighestReturnValue] = useState(highestReturn);
   // const [startDateValue, setStartDateValue] = useState(startDate);
   // const [fileValue, setFileValue] = useState(file);
 
+  const download = () => {
+    const link = document.createElement("a");
+    link.href = file;
+    link.download = "portfolio.pdf";
+    link.click();
+  };
+
   return (
-    <div>
+    <article>
       <div className="mb-7">
         <div className="header">한 줄 소개</div>
         <div className="flex h-[111px] items-center justify-center rounded-md bg-background-secondary px-[22px] py-6 text-xs">
@@ -62,29 +70,35 @@ function Content({ contentData }: any) {
         </div>
         <div className="flex justify-between px-3 font-bold">
           <div className="portfolio">
-            <div className="card portfolio_number">{highestReturnValue}%</div>
+            <div className="card portfolio_number">{cumulativeReturn}%</div>
             <div className="portfolio_text">누적 수익률</div>
           </div>
           <div className="portfolio">
-            <div className="card portfolio_number">{propensity}%</div>
+            <div className="card portfolio_number">{maxDrawdown}%</div>
             <div className="portfolio_text">최대 자본인하율</div>
           </div>
           <div className="portfolio">
-            <div className="card portfolio_number">{startDateValue}%</div>
+            <div className="card portfolio_number">{averageProfit}%</div>
             <div className="portfolio_text">평균 손익률</div>
           </div>
           <div className="portfolio">
-            <div className="card portfolio_number">{dangerRate}:1</div>
+            <div className="card portfolio_number">{profitFactor}:1</div>
             <div className="portfolio_text">Profit Factor</div>
           </div>
         </div>
       </div>
-      <Download
-        file={fileValue}
-        title="포트폴리오 다운로드"
-        style="ml-1 h-12 w-[100px] rounded-md bg-primary-normal text-white"
-      />
-    </div>
+      <div className="mb-[95px]">
+        <div className="header">포트폴리오 다운로드</div>
+        <div className="flex">
+          <div className="mr-1 flex h-12 w-full items-center rounded-md bg-white pl-4 text-placeholder">
+            {fileValue}
+          </div>
+          <button onClick={() => download} className="h-12 w-[100px] rounded-md bg-primary-normal text-white">
+            다운로드
+          </button>
+        </div>
+      </div>
+    </article>
   );
 }
 

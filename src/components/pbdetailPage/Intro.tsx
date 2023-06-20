@@ -1,5 +1,4 @@
 import React from "react";
-import Link from "next/link";
 import Image from "next/image";
 import BlurModal from "@/components/common/Modal/BlurModal";
 import ButtonModal from "@/components/common/ButtonModal";
@@ -50,7 +49,7 @@ function Intro({ introData, role }: { introData: any; role: any }) {
   };
 
   return (
-    <div>
+    <header>
       <div className="relative">
         <button onClick={goToCompany} className="absolute h-[42px] w-[112px]">
           {companyLogo}
@@ -110,7 +109,7 @@ function Intro({ introData, role }: { introData: any; role: any }) {
       {isBookmarkOpen && isBookmark && (
         <ButtonModal modalContents={bookMarkContents} isOpen={isBookmarkOpen} setIsOpen={setIsBookmarkOpen} />
       )}
-    </div>
+    </header>
   );
 }
 
