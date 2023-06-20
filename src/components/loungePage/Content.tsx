@@ -4,19 +4,13 @@ import Link from "next/link";
 import MainCarousel from "@/components/common/Carousel/MainCarousel";
 import "@/styles/carousel.css";
 import "@/styles/lounge.css";
-import { ListResponse } from "@/types/common";
-import { ContentCard } from "@/types/card";
 
-function Content({
-  NewAndHot,
-  All,
-}: {
-  NewAndHot: ListResponse<ContentCard> | undefined;
-  All: ListResponse<ContentCard> | undefined;
-}) {
-  const [all, setAll] = useState<ContentCard[]>();
-  const [newData, setNewData] = useState<ContentCard[]>();
-  const [hotData, setHotData] = useState<ContentCard[]>();
+function Content({ NewAndHot, All }: { NewAndHot: any; All: any }) {
+  const [all, setAll] = useState<any>();
+  const [newData, setNewData] = useState<any>();
+  const [hotData, setHotData] = useState<any>();
+  const [click, setClick] = useState<boolean>(false);
+
 
   useEffect(() => {
     if (NewAndHot) {
@@ -30,6 +24,7 @@ function Content({
 
   const getAllContent = () => {
     setAll(All?.data?.list);
+    setClick(true);
   };
 
   return (
@@ -103,9 +98,11 @@ function Content({
             <br />
             한눈에 보세요
           </div>
-          <button onClick={getAllContent} className="more flex-3">
-            더보기
-          </button>
+          {!click && (
+            <button onClick={getAllContent} className="more flex-3">
+              더보기
+            </button>
+          )}
         </div>
         <div>
           <ContentCardList props={all} />
