@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useEffect, useRef } from "react";
 import PbCardItem from "@/components/common/Card/CardItem/PbCardItem";
-import { PbCard } from "@/types/card";
+import { IPbCard } from "@/types/card";
 
 function PbCardList({ props }: { props: any; }) {
   const dataList = props?.data ? props.data.list : props;
@@ -29,7 +29,6 @@ function PbCardList({ props }: { props: any; }) {
 
   const handleObserver: IntersectionObserverCallback = entries => {
     const target = entries[0];
-    // todo: api완성되면 api의 last를 사용하기
     if (target.isIntersecting && !isLastPage) {
       loadMoreItems();
     }
@@ -43,7 +42,7 @@ function PbCardList({ props }: { props: any; }) {
     // setItems((prevItems: any) => [...prevItems, ...newItems]);
 
     // 현재 페이지가 마지막 페이지인지 확인
-    if (data?.curPage === data?.totalPages - 1) {
+    if (data?.curPage === data?.totalPages) {
       setIsLastPage(true);
     }
   };
@@ -51,7 +50,7 @@ function PbCardList({ props }: { props: any; }) {
   return (
     <>
       <ul>
-        {dataList?.map((item: PbCard) => (
+        {dataList?.map((item: IPbCard) => (
           <PbCardItem key={item.id} item={item} />
         ))}
       </ul>

@@ -44,9 +44,9 @@ function PbCardItem({ item}: { item: any; }) {
         {userData.user.role && (
           <button onClick={bookMark} className="flex-2 flex w-12 items-start justify-center pt-1">
             {item.isBookmark ? (
-              <Image src={bookmark_filled} alt="북마크 해제" />
+              <Image src={bookmark_filled} alt="북마크 해제" width={0} height={0} />
             ) : (
-              <Image src={bookmark} alt="북마크" />
+              <Image src={bookmark} alt="북마크" width={0} height={0} />
             )}
           </button>
         )}
