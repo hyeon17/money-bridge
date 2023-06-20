@@ -151,4 +151,17 @@
   .propensity_circle {
     @apply absolute top-1/2 h-[10px] w-[10px] -translate-x-1/2 -translate-y-1/2 rounded-[5px] bg-primary-normal;
   }
+
+  .input_button {
+    @apply absolute right-10 w-4 h-4 bg-[url('/assets/images/clear.svg')]
+  }
+
+  .input_status {
+    @apply absolute right-3
+  }
+}
+
+.custom-gradient {
+  background-image: linear-gradient(to bottom, transparent, black);
+  z-index: 10;
 }
