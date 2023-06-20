@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import TopNav from "@/components/common/TopNav";
 import search_active from "/public/assets/images/icon/search_active.svg";
 import Image from "next/image";
+import ContentCardList from "@/components/common/Card/CardList/ContentCardList";
+import PbCardList from "@/components/common/Card/CardList/PbCardList";
 
 function LoungeSearch() {
   const [isActive, setIsActive] = useState(false);
@@ -14,7 +16,9 @@ function LoungeSearch() {
   const handleContentSearchClick = () => {
     setIsActive(false);
   };
+
   return (
+
     <>
       <TopNav title="검색하기" hasBack={true} />
       <div className="relative">
@@ -39,11 +43,12 @@ function LoungeSearch() {
           콘텐츠 검색
         </div>
       </div>
-      <div>
-        <div>PB 검색 결과</div>
+      <div className="mt-[24px]">
+        <div className="mb-[24px] h-[34px] border-b-[1px] border-b-gray-normal text-gray-normal">PB 검색 결과</div>
         <div>콘텐츠 검색 결과</div>
         <div>일치하는 정보가 없습니다</div>
-        <div>카드</div>
+        {/* <ContentCardList /> */}
+        {/* <PbCardList /> */}
       </div>
     </>
   );

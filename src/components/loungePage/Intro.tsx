@@ -41,7 +41,7 @@ function Intro({ role }: { role: string }) {
         {role === CommonROLE.PB ? (
           <div className="flex justify-end">
             <Link
-              href={`/detail/content/${id}`}
+              href={`/detail/content/`}
               className="mr-4 flex h-16 w-16 flex-col items-center justify-center rounded-md bg-secondary-light text-xs font-bold text-secondary-heavy"
             >
               <Image src={mylist} alt="내 글 목록" />내 글 목록

@@ -1,26 +1,20 @@
 import React, { useState } from "react";
 import portfolio from "@/mocks/hyeon17/PbDetail/portfolio.json";
 import "@/styles/pb.css";
+// import Download from "@/components/pbdetailPage/Download";
 
 function Content({ contentData }: any) {
   const { name, intro, speciality1, speciality2, career, award } = contentData;
   const portfolioData = portfolio.data;
-  const { highestReturn, propensity, startDate, dangerRate, file } = portfolioData;
+  // const { highestReturn, propensity, startDate, dangerRate, file } = portfolioData;
   const [introValue, setIntroValue] = useState(intro);
   const [speciality1Value, setSpeciality1Value] = useState(speciality1);
   const [speciality2Value, setSpeciality2Value] = useState(speciality2);
   const [careerValue, setCareerValue] = useState(career);
   const [awardValue, setAwardValue] = useState(award);
-  const [highestReturnValue, setHighestReturnValue] = useState(highestReturn);
-  const [startDateValue, setStartDateValue] = useState(startDate);
-  const [fileValue, setFileValue] = useState(file);
-
-  const download = () => {
-    const link = document.createElement("a");
-    link.href = file;
-    link.download = "portfolio.pdf";
-    link.click();
-  };
+  // const [highestReturnValue, setHighestReturnValue] = useState(highestReturn);
+  // const [startDateValue, setStartDateValue] = useState(startDate);
+  // const [fileValue, setFileValue] = useState(file);
 
   return (
     <div>
@@ -85,17 +79,11 @@ function Content({ contentData }: any) {
           </div>
         </div>
       </div>
-      <div className="mb-[95px]">
-        <div className="header">포트폴리오 다운로드</div>
-        <div className="flex">
-          <div className="mr-1 flex h-12 w-full items-center rounded-md bg-white pl-4 text-placeholder">
-            {fileValue}
-          </div>
-          <button onClick={() => download} className="h-12 w-[100px] rounded-md bg-primary-normal text-white">
-            다운로드
-          </button>
-        </div>
-      </div>
+      <Download
+        file={fileValue}
+        title="포트폴리오 다운로드"
+        style="ml-1 h-12 w-[100px] rounded-md bg-primary-normal text-white"
+      />
     </div>
   );
 }
